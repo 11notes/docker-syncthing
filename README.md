@@ -1,7 +1,7 @@
 ![banner](https://github.com/11notes/defaults/blob/main/static/img/banner.png?raw=true)
 
 # SYNCTHING
-![size](https://img.shields.io/docker/image-size/11notes/syncthing/2.0.2?color=0eb305)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![version](https://img.shields.io/docker/v/11notes/syncthing/2.0.2?color=eb7a09)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![pulls](https://img.shields.io/docker/pulls/11notes/syncthing?color=2b75d6)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)[<img src="https://img.shields.io/github/issues/11notes/docker-SYNCTHING?color=7842f5">](https://github.com/11notes/docker-SYNCTHING/issues)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![swiss_made](https://img.shields.io/badge/Swiss_Made-FFFFFF?labelColor=FF0000&logo=data:image/svg%2bxml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0idHJhbnNwYXJlbnQiLz4KICA8cGF0aCBkPSJtMTMgNmg2djdoN3Y2aC03djdoLTZ2LTdoLTd2LTZoN3oiIGZpbGw9IiNmZmYiLz4KPC9zdmc+)
+![size](https://img.shields.io/docker/image-size/11notes/syncthing/2.0.3?color=0eb305)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![version](https://img.shields.io/docker/v/11notes/syncthing/2.0.3?color=eb7a09)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![pulls](https://img.shields.io/docker/pulls/11notes/syncthing?color=2b75d6)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)[<img src="https://img.shields.io/github/issues/11notes/docker-SYNCTHING?color=7842f5">](https://github.com/11notes/docker-SYNCTHING/issues)![5px](https://github.com/11notes/defaults/blob/main/static/img/transparent5x2px.png?raw=true)![swiss_made](https://img.shields.io/badge/Swiss_Made-FFFFFF?labelColor=FF0000&logo=data:image/svg%2bxml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0idHJhbnNwYXJlbnQiLz4KICA8cGF0aCBkPSJtMTMgNmg2djdoN3Y2aC03djdoLTZ2LTdoLTd2LTZoN3oiIGZpbGw9IiNmZmYiLz4KPC9zdmc+)
 
 Run syncthing rootless and distroless.
 
@@ -33,13 +33,9 @@ If you value security, simplicity and optimizations to the extreme, then this im
 # COMPARISON 🏁
 Below you find a comparison between this image and the most used or original one.
 
-| **image** | 11notes/syncthing:2.0.2 | linuxserver/syncthing |
-| ---: | :---: | :---: |
-| **image size on disk** | 13.1MB | 58.4MB |
-| **process UID/GID** | 1000/1000 | 0/0 |
-| **distroless?** | ✅ | ❌ |
-| **rootless?** | ✅ | ❌ |
-
+| **image** | **size on disk** | **init default as** | **[distroless](https://github.com/11notes/RTFM/blob/main/linux/container/image/distroless.md)** | supported architectures
+| ---: | ---: | :---: | :---: | :---: |
+| linuxserver/syncthing | 58MB | 0:0 | ❌ | amd64, arm64 |
 
 # VOLUMES 📁
 * **/syncthing/etc** - Directory of the configuration file
@@ -51,7 +47,7 @@ Below you find a comparison between this image and the most used or original one
 name: "syncthing"
 services:
   server:
-    image: "11notes/syncthing:2.0.2"
+    image: "11notes/syncthing:2.0.3"
     read_only: true
     environment:
       TZ: "Europe/Zurich"
@@ -99,18 +95,18 @@ networks:
 # MAIN TAGS 🏷️
 These are the main tags for the image. There is also a tag for each commit and its shorthand sha256 value.
 
-* [2.0.2](https://hub.docker.com/r/11notes/syncthing/tags?name=2.0.2)
+* [2.0.3](https://hub.docker.com/r/11notes/syncthing/tags?name=2.0.3)
 
 ### There is no latest tag, what am I supposed to do about updates?
-It is of my opinion that the ```:latest``` tag is dangerous. Many times, I’ve introduced **breaking** changes to my images. This would have messed up everything for some people. If you don’t want to change the tag to the latest [semver](https://semver.org/), simply use the short versions of [semver](https://semver.org/). Instead of using ```:2.0.2``` you can use ```:2``` or ```:2.0```. Since on each new version these tags are updated to the latest version of the software, using them is identical to using ```:latest``` but at least fixed to a major or minor version.
+It is of my opinion that the ```:latest``` tag is dangerous. Many times, I’ve introduced **breaking** changes to my images. This would have messed up everything for some people. If you don’t want to change the tag to the latest [semver](https://semver.org/), simply use the short versions of [semver](https://semver.org/). Instead of using ```:2.0.3``` you can use ```:2``` or ```:2.0```. Since on each new version these tags are updated to the latest version of the software, using them is identical to using ```:latest``` but at least fixed to a major or minor version.
 
 If you still insist on having the bleeding edge release of this app, simply use the ```:rolling``` tag, but be warned! You will get the latest version of the app instantly, regardless of breaking changes or security issues or what so ever. You do this at your own risk!
 
 # REGISTRIES ☁️
 ```
-docker pull 11notes/syncthing:2.0.2
-docker pull ghcr.io/11notes/syncthing:2.0.2
-docker pull quay.io/11notes/syncthing:2.0.2
+docker pull 11notes/syncthing:2.0.3
+docker pull ghcr.io/11notes/syncthing:2.0.3
+docker pull quay.io/11notes/syncthing:2.0.3
 ```
 
 # SOURCE 💾
@@ -134,4 +130,4 @@ docker pull quay.io/11notes/syncthing:2.0.2
 # ElevenNotes™️
 This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/11notes/docker-syncthing/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/11notes/docker-syncthing/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/11notes/docker-syncthing/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/11notes?tab=repositories).
 
-*created 17.08.2025, 08:08:57 (CET)*
+*created 23.08.2025, 07:27:24 (CET)*
