@@ -1,7 +1,7 @@
 name: "syncthing"
 services:
   server:
-    image: "11notes/syncthing:2.0.3"
+    image: "11notes/syncthing:2.0.5"
     read_only: true
     environment:
       TZ: "Europe/Zurich"
