@@ -3,7 +3,7 @@
   "name": "syncthing",
   "root": "/syncthing",
   "semver": {
-    "version": "2.0.3"
+    "version": "2.0.5"
   },
   "readme": {
     "description": "Run syncthing rootless and distroless.",
