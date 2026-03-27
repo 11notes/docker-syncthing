@@ -12,7 +12,7 @@ services:
       - "syncthing.var:/syncthing/var"
       - "syncthing.share:/syncthing/share"
     ports:
-      - "3000:3000/tcp"
+      - "3000:8384/tcp"
       - "22000:22000/tcp"
       - "22000:22000/udp"
       - "21027:21027/udp"

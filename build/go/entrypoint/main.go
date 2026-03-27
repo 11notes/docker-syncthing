@@ -20,7 +20,7 @@ const bin = "/usr/local/bin/syncthing"
 const share = "/syncthing/share"
 
 var (
-	args = []string{"syncthing", "serve", "--config=/syncthing/etc", "--data=/syncthing/var", "--no-upgrade", "--no-browser", "--no-restart", "--gui-address=0.0.0.0:3000"}
+	args = []string{"syncthing", "serve", "--config=/syncthing/etc", "--data=/syncthing/var", "--no-upgrade", "--no-browser", "--no-restart", "--gui-address=0.0.0.0:8384"}
 )
 
 // config structure

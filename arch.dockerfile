@@ -4,6 +4,7 @@
 # GLOBAL
   ARG APP_UID=1000 \
       APP_GID=1000 \
+      APP_GO_VERSION=0 \
       BUILD_SRC=syncthing/syncthing.git \
       BUILD_ROOT=/go/syncthing
   ARG BUILD_BIN=${BUILD_ROOT}/bin/syncthing
@@ -16,7 +17,7 @@
 # ║                       BUILD                         ║
 # ╚═════════════════════════════════════════════════════╝
 # :: SYNCTHING
-  FROM 11notes/go:1.24 AS build
+  FROM 11notes/go:${APP_GO_VERSION} AS build
   ARG APP_VERSION \
       BUILD_SRC \
       BUILD_ROOT \
@@ -33,7 +34,7 @@
     eleven distroless ${BUILD_BIN};
 
 # :: ENTRYPOINT
-  FROM 11notes/go:1.24 AS entrypoint
+  FROM 11notes/go:${APP_GO_VERSION} AS entrypoint
   COPY ./build /
   ARG APP_VERSION \
       BUILD_ROOT=/go/entrypoint
@@ -92,7 +93,7 @@
 
 # :: MONITORING
   HEALTHCHECK --interval=5s --timeout=2s --start-period=5s \
-    CMD ["/usr/local/bin/localhealth", "http://127.0.0.1:3000/"]
+    CMD ["/usr/local/bin/localhealth", "http://127.0.0.1:8384/"]
 
 # :: EXECUTE
   USER ${APP_UID}:${APP_GID}
