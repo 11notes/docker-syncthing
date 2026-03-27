@@ -16,6 +16,20 @@
 # ╔═════════════════════════════════════════════════════╗
 # ║                       BUILD                         ║
 # ╚═════════════════════════════════════════════════════╝
+# :: ENTRYPOINT
+  FROM 11notes/go:${APP_GO_VERSION} AS entrypoint
+  COPY ./build /
+  ARG APP_VERSION \
+      BUILD_ROOT=/go/entrypoint
+  ARG BUILD_BIN=${BUILD_ROOT}/entrypoint
+  RUN set -ex; \
+    cd ${BUILD_ROOT}; \
+    eleven go build ${BUILD_BIN} main.go;
+
+  RUN set -ex; \
+    eleven distroless ${BUILD_BIN};
+
+
 # :: SYNCTHING
   FROM 11notes/go:${APP_GO_VERSION} AS build
   ARG APP_VERSION \
@@ -33,18 +47,6 @@
   RUN set -ex; \
     eleven distroless ${BUILD_BIN};
 
-# :: ENTRYPOINT
-  FROM 11notes/go:${APP_GO_VERSION} AS entrypoint
-  COPY ./build /
-  ARG APP_VERSION \
-      BUILD_ROOT=/go/entrypoint
-  ARG BUILD_BIN=${BUILD_ROOT}/entrypoint
-  RUN set -ex; \
-    cd ${BUILD_ROOT}; \
-    eleven go build ${BUILD_BIN} main.go;
-
-  RUN set -ex; \
-    eleven distroless ${BUILD_BIN};
 
 # :: FILE SYSTEM
   FROM alpine AS file-system
