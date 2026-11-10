@@ -20,5 +20,7 @@
     "comparison": {
       "image": "linuxserver/syncthing"
     }
-  }
+  },
+  "unraid": true,
+  "nobody": true
 }
