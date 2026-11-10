@@ -9,7 +9,7 @@ x-lockdown: &lockdown
 
 services:
   server:
-    image: "11notes/syncthing:2.0.15"
+    image: "11notes/syncthing:2.1.7"
     <<: *lockdown
     environment:
       TZ: "Europe/Zurich"
